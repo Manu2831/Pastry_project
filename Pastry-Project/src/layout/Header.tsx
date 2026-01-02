@@ -1,38 +1,53 @@
-import { Search, User, Heart, ShoppingBag, Phone } from "lucide-react";
+import { Search, User, Heart, ShoppingBag, Phone, Mail } from "lucide-react";
 
 export default function Header() {
-    return (
-        <header className="w-full  flex-col items-center ">
-            <div className="w-full   bg-gray-100 flex items-center justify-between box-shadow-md">
-                <div className=" pt-3 px-4 md:px-15 items-center flex gap-2 mb-4">
-                    <Phone className="w-3 h-3 cursor-pointer" />
-                    <p className="text-xs text-black ">(+57) 3175944368</p>
-                </div>    
-            </div>
-            {/*Los cositos de la izquierda*/}
-            <div className="w-full mx-auto border-b border-gray-300 flex items-center justify-between px-10 py-7">
-                <div className="items-center flex gap-4">
-                    <User className="w-7 h-7 cursor-pointer" />
-                    <Search className="w-7 h-7 cursor-pointer" />
-                </div>
-                {/*Logo*/}
-                <div className="flex items-center justify-center">
-                    <img src="../assets/Logo.png" alt="Logo" className="h-14 object-contain" />
-                </div>
-                {/*cositos derecha*/}
-                <div className=" items-center flex gap-4">
-                    <Heart className="w-7 h-7 cursor-pointer" />
-                    <ShoppingBag className="w-7 h-7 cursor-pointer" />
-                </div>
-            </div>
-            <nav className="w-full  bg-white ">
-                <div className="justify-center max-w-6xl mx-auto flex gap-10 px-4 py-3 text-sm ">
-                    <a href="/">Inicio</a>
-                    <a href="/about">Quiénes Somos</a>
-                    <a href="/products">Productos</a>
-                </div>
-            </nav>
-        </header>
-    
-    );
+  return (
+    <header className="w-full flex flex-col">
+
+      {/* 🔹 Top bar (teléfono + mail) */}
+      <div className="w-full bg-gray-100">
+        <div className="max-w-6xl mx-auto flex flex-col sm:flex-row sm:items-center sm:justify-between px-4 py-2 gap-2 sm:gap-4 text-xs">
+          <div className="flex items-center gap-2">
+            <Phone className="w-3 h-3" />
+            <span>(+57) 3175944368</span>
+            <Mail className="w-3 h-3" />
+            <span>giseltor1406@gmail.com</span>
+          </div>
+        </div>
+      </div>
+
+      {/* 🔹 Header principal */}
+      <div className="w-full border-b border-gray-300">
+        <div className="max-w-6xl mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-10 py-6 lg:py-10">
+
+          {/* Íconos izquierda */}
+          <div className="flex items-center gap-3 sm:gap-4">
+            <User className="w-5 h-5 sm:w-6 sm:h-6 cursor-pointer" />
+            <Search className="w-5 h-5 sm:w-6 sm:h-6 cursor-pointer" />
+          </div>
+
+          {/* LOGO */}
+          <div className="flex justify-center">
+            <img src="/assets/Logo.png" alt="Logo" className="h-20 sm:h-24 md:h-28 lg:h-32 object-contain cursor-pointer"
+            />
+          </div>
+          {/* Íconos derecha */}
+          <div className="flex items-center gap-3 sm:gap-4">
+            <Heart className="w-5 h-5 sm:w-6 sm:h-6 cursor-pointer" />
+            <ShoppingBag className="w-5 h-5 sm:w-6 sm:h-6 cursor-pointer" />
+          </div>
+        </div>
+      </div>
+
+      {/* 🔹 Navbar */}
+      <nav className="w-full">
+        <div className="max-w-6xl mx-auto flex flex-wrap justify-center gap-6 sm:gap-10 px-4 py-4 text-sm sm:text-base">
+          <a href="/" className="hover:text-pink-300">Inicio</a>
+          <a href="/about" className="hover:text-pink-300">Quiénes Somos</a>
+          <a href="/products" className="hover:text-pink-300">Productos</a>
+        </div>
+      </nav>
+
+    </header>
+  );
 }
