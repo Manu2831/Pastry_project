@@ -2,6 +2,7 @@ import { Fragment } from 'react';
 import Header from '../layout/Header.tsx' 
 import SidebarFilters from '../components/SidebarFilters.tsx';
 import ProductGrid from '../components/ProductGrid.tsx';
+import ProductsToolbar from '../components/ProductsToolBar.tsx';
 
 export default function Productos() {
     return (
@@ -11,6 +12,7 @@ export default function Productos() {
                 
                 {/* Contenedor de Productos (Arriba en móvil, derecha en PC) */}
                 <div className="flex-1 w-full order-1 lg:order-2">
+                    <ProductsToolbar />
                     <ProductGrid />
                 </div>
 
