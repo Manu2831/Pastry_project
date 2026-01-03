@@ -1,3 +1,5 @@
+import { useCart } from "../context/CartContext";
+
 interface Props{
     Product: {
         id: number;
@@ -8,6 +10,7 @@ interface Props{
 }
 
 export default function ProductCard({ Product }: Props) {
+    const { addToCart, toggleCart } = useCart();
     return (
         <div className="border border-gray-300 rounded-lg flex flex-col items-center overflow-hidden hover:shadow-lg transition-shadow duration-300">
             
@@ -24,7 +27,13 @@ export default function ProductCard({ Product }: Props) {
                 <p className="text-gray-700 mb-4 font-medium">
                     ${Product.price.toLocaleString()}
                 </p>
-                <button className="w-full bg-white border border-pink-400 text-black px-4 py-2 rounded-4xl hover:bg-pink-500 hover:text-white transition-colors duration-300">
+                <button onClick={() =>
+                    addToCart({
+                    id: Product.id,
+                    name: Product.name,
+                    price: Product.price,
+                    image: Product.image
+                    })} className="w-full bg-white border border-pink-400 text-black px-4 py-2 rounded-4xl hover:bg-pink-500 hover:text-white transition-colors duration-300">
                     Agregar al carrito
                 </button>
             </div>

@@ -7,7 +7,7 @@ export default function SidebarFilters() {
   return (
     
     <aside className="w-full p-6 bg-white border-t lg:border-t-0 lg:border-r border-gray-100">
-      <button className=" w-full font-bold text-0.9xl text-left mb-6 bg-amber-200 px-6 py-2 rounded-full">
+      <button className=" w-full font-bold text-0.9xl text-left mb-6 bg-amber-200 px-6 py-2 rounded-full hover:bg-amber-300  hover:shadow-lg transition-shadow duration-300">
         Etiquetas
       </button>
 
