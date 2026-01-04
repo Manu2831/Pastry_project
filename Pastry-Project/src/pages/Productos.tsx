@@ -3,6 +3,7 @@ import Header from '../layout/Header.tsx'
 import SidebarFilters from '../components/SidebarFilters.tsx';
 import ProductGrid from '../components/ProductGrid.tsx';
 import ProductsToolbar from '../components/ProductsToolBar.tsx';
+import Footer from '../layout/Footer.tsx';
 
 export default function Productos() {
     return (
@@ -20,8 +21,13 @@ export default function Productos() {
                 <div className="w-full lg:w-64 order-2 lg:order-1">
                     <SidebarFilters />
                 </div>
-
+                
+            </div>
+            <div className='w-full'>
+                    <Footer />
             </div>
         </Fragment>
     );
 }
+
+

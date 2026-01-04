@@ -1,11 +1,13 @@
 import { Search, User, Heart, ShoppingBag, Phone, Mail } from "lucide-react";
 import { useCart } from "../context/CartContext";
-import CartDrawer from "../components/cartDrawer";
-
+import CartDrawer from "../components/CartDrawer";
+import { useSearch } from "../context/SearchContext";
 
 export default function Header() {
-  const { items, toggleCart } = useCart();
-  return (
+    const { items, toggleCart } = useCart();
+    const { query, setQuery } = useSearch();
+    const TotalItems = items.reduce((total, item) => total + item.quantity, 0);
+    return (
     <header className="w-full flex flex-col">
         <CartDrawer />
         {/* 🔹 Top bar (teléfono + mail) */}
@@ -28,6 +30,9 @@ export default function Header() {
             <div className="flex items-center gap-3 sm:gap-4">
                 <User className="w-5 h-5 sm:w-6 sm:h-6 cursor-pointer" />
                 <Search className="w-5 h-5 sm:w-6 sm:h-6 cursor-pointer" />
+                <input type="text" className="w-full border rounded-4xl px-2"placeholder="Realizar busqueda.."
+                value={query} onChange={(e) => setQuery(e.target.value)} />
+                
             </div>
 
             {/* LOGO */}
@@ -39,9 +44,9 @@ export default function Header() {
                 <Heart className="w-5 h-5 sm:w-6 sm:h-6 cursor-pointer" />
                 <button onClick={toggleCart} className="relative cursor-pointer">
                     <ShoppingBag className="w-7 h-7" />
-                    {items.length > 0 && (
+                    {TotalItems > 0 && (
                     <span className="absolute -top-2 -right-2 bg-pink-500 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">
-                    {items.length}
+                    {TotalItems}
                     </span>
                     )}
                 </button>

@@ -1,4 +1,7 @@
+import { useSearch } from "../context/SearchContext";
+
 export default function ProductsToolbar() {
+  const { sortOrder, setSortOrder } = useSearch();
   return (
     <div className="w-full flex justify-end mb-6">
 
@@ -7,7 +10,9 @@ export default function ProductsToolbar() {
         {/* ORDENAR */}
         <div className="flex items-center gap-2">
           <span className="text-gray-600">Ordenar por</span>
-          <select className="border rounded-full px-4 py-1 focus:outline-none">
+          <select className="border rounded-full px-4 py-1 focus:outline-none" 
+          value={sortOrder} onChange={(e) => setSortOrder(e.target.value)}>
+            
             <option>Más vendidos</option>
             <option>Precio: menor a mayor</option>
             <option>Precio: mayor a menor</option>

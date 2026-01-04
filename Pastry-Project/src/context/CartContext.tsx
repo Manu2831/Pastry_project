@@ -23,7 +23,7 @@ const CartContext = createContext<CartContextType | null>(null);
 export function CartProvider({ children }: { children: ReactNode }) {
   const [items, setItems] = useState<CartItem[]>([]);
   const [isOpen, setIsOpen] = useState(false);
-
+  
   const addToCart = (product: Omit<CartItem, "quantity">) => {
     setItems(prev => {
       const existing = prev.find(item => item.id === product.id);
