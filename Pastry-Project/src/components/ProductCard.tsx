@@ -1,8 +1,9 @@
+import { Link } from "react-router-dom";
 import { useCart } from "../context/CartContext";
 
 interface Props {
     Product: {
-        id: number;
+        id: string;
         name: string;
         price: number;
         image: string;
@@ -18,7 +19,15 @@ export default function ProductCard({ Product }: Props) {
             
             {/* Contenedor de la Imagen */}
             <div className="bg-white w-full flex justify-center p-4">
-                <img src={Product.image} alt={Product.name} className="w-32 h-32 object-cover" />
+                <Link 
+                to={`/product/${Product.id}`} 
+                target="_self" 
+                className="bg-white w-full flex justify-center p-4 cursor-pointer overflow-hidden">
+                <img 
+                    src={Product.image} 
+                    alt={Product.name} 
+                    className="w-32 h-32 object-cover transition-all duration-500 hover:grayscale hover:scale-110" />
+                </Link>
             </div>
 
             {/* Zona con fondo Gris */}
@@ -34,7 +43,7 @@ export default function ProductCard({ Product }: Props) {
                 <button 
                     onClick={() => {
                         addToCart({
-                            id: Product.id,
+                            id: Product.id.toString(),
                             name: Product.name,
                             price: Product.price,
                             image: Product.image

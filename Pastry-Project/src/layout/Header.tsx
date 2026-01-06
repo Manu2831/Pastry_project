@@ -2,6 +2,7 @@ import { Search, User, Heart, ShoppingBag, Phone, Mail } from "lucide-react";
 import { useCart } from "../context/CartContext";
 import CartDrawer from "../components/CartDrawer";
 import { useSearch } from "../context/SearchContext";
+import { Link } from "react-router-dom";
 
 export default function Header() {
     const { items, toggleCart } = useCart();
@@ -57,9 +58,9 @@ export default function Header() {
         {/* 🔹 Navbar */}
         <nav className="w-full">
             <div className="max-w-6xl mx-auto flex flex-wrap justify-center gap-6 sm:gap-10 px-4 py-4 text-sm sm:text-base">
-                <a href="/" className="hover:text-pink-300">Inicio</a>
-                <a href="/about" className="hover:text-pink-300">Quiénes Somos</a>
-                <a href="/products" className="hover:text-pink-300">Productos</a>
+                <Link to="/" className="hover:text-pink-300">Inicio</Link>
+                <Link to="/about" className="hover:text-pink-300">Quiénes Somos</Link>
+                <Link to="/productos" className="hover:text-pink-300">Productos</Link>
             </div>
         </nav>
 
