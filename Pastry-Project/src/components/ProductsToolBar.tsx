@@ -1,7 +1,7 @@
 import { useSearch } from "../context/SearchContext";
 
 export default function ProductsToolbar() {
-  const { sortOrder, setSortOrder } = useSearch();
+  const { sortOrder, setSortOrder,currentPage,setCurrentPage,ItemsPerPage,setItemsPerPage } = useSearch();
   return (
     <div className="w-full flex justify-end mb-6">
 
@@ -22,13 +22,20 @@ export default function ProductsToolbar() {
 
         {/* MOSTRAR */}
         <div className="flex items-center gap-2">
-          <span className="text-gray-600">Mostrar</span>
-          <select className="border rounded-full px-3 py-1 focus:outline-none">
-            <option>12</option>
-            <option>24</option>
-            <option>36</option>
-          </select>
-        </div>
+        <span className="text-gray-600">Mostrar</span>
+        <select 
+          className="border rounded-full px-3 py-1 focus:outline-none"
+          value={ItemsPerPage}
+          onChange={(e) => {
+            setItemsPerPage(Number(e.target.value));
+            setCurrentPage(1); // Resetear a página 1 al cambiar el límite
+          }}
+        >
+          <option value={12}>12</option>
+          <option value={24}>24</option>
+          <option value={36}>36</option>
+        </select>
+      </div>
 
       </div>
     </div>

@@ -7,7 +7,7 @@ export default function SidebarFilters() {
   
   const etiquetas = [
     "Almendras", "Arequipe", "Banano", "Bocadillo", "Chocolate", 
-    "Frutos Rojos", "Red Velvet", "Vainilla"
+    "Frutos Rojos", "Red Velvet", "Vainilla", "Gourmet"
   ];
 
   return (

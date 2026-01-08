@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useCart } from "../context/CartContext";
+import { Eye, Heart } from "lucide-react";
 
 interface Props {
     Product: {
@@ -18,16 +19,31 @@ export default function ProductCard({ Product }: Props) {
         <div className="border border-gray-300 rounded-lg flex flex-col items-center overflow-hidden hover:shadow-lg transition-shadow duration-300">
             
             {/* Contenedor de la Imagen */}
-            <div className="bg-white w-full flex justify-center p-4">
+            <div className="bg-white w-full flex justify-center p-4 relative overflow-hidden">
+                
                 <Link 
-                to={`/product/${Product.id}`} 
-                target="_self" 
-                className="bg-white w-full flex justify-center p-4 cursor-pointer overflow-hidden">
-                <img 
-                    src={Product.image} 
-                    alt={Product.name} 
-                    className="w-32 h-32 object-cover transition-all duration-500 hover:grayscale hover:scale-110" />
+                    to={`/product/${Product.id}`} 
+                    className="w-full flex justify-center cursor-pointer"
+                >
+                    <img 
+                        src={Product.image} 
+                        alt={Product.name} 
+                        className="w-32 h-32 object-cover transition-all duration-500 hover:grayscale hover:scale-110" 
+                    />
                 </Link>
+
+                {/* BOTÓN DEL OJO (Solo visible en Hover) */}
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300 bg-black/5 pointer-events-none">
+                    
+                    <Link 
+                        to={`/product/${Product.id}`}
+                        className="bg-white p-3 rounded-full shadow-md text-gray-700 hover:text-pink-500 hover:scale-110 transition-all pointer-events-auto"
+                        title="Ver detalles"
+                    >   
+                        
+                        <Eye className="w-4 h-4" />
+                    </Link>
+                </div>
             </div>
 
             {/* Zona con fondo Gris */}
